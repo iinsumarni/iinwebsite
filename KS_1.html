@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio — Iin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    header {
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #7b2fff;
+    }
+    .navbar nav {
+      display: flex;
+      gap: 25px;
+    }
+    .navbar nav a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .navbar nav a:hover { color: #7b2fff; }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 60px 30px;
+      max-width: 1200px;
+      margin: auto;
+      gap: 40px;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #2c2c54;
+    }
+    .hero-text p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      color: #555;
+    }
+    .hero-text button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #a16eff, #f77aff);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .hero img {
+      width: 50%;
+      border-radius: 20px;
+    }
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #a16eff, #f77aff);
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 100;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+    /* SWOT Section */
+    .swot {
+      background: #fff;
+      padding: 60px 20px;
+    }
+    .swot h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #2c2c54;
+      margin-bottom: 30px;
+    }
+    .swot p {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #555;
+    }
+    .swot-diagram {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .swot-circle {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      border: 5px solid #e0e0e0;
+    }
+    .quad {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 32px;
+      color: white;
+    }
+    .s { background-color: #2e8b80; }
+    .w { background-color: #a6cf7d; }
+    .o { background-color: #9ed7b0; }
+    .t { background-color: #2e8b80; }
+
+    .swot-content {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 25px;
+    }
+    .swot-card {
+      background: #f9f9fb;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .swot-card h3 {
+      color: #7b2fff;
+      margin-bottom: 10px;
+    }
+
+    /* PDF Section */
+    .pdf-section {
+      background: linear-gradient(135deg, #a16eff1c, #f77aff1c);
+      padding: 60px 20px;
+    }
+    .pdf-section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #2c2c54;
+    }
+    .pdf-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .pdf-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+      text-align: center;
+      padding: 20px;
+    }
+    .pdf-card:hover { transform: translateY(-8px); }
+    .pdf-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .pdf-card h4 { margin-bottom: 15px; }
+    .pdf-card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #7b2fff;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: 600;
+    }
+
+    /* Ulasan */
+    .testimonials {
+      background: #fff;
+      padding: 60px 20px;
+    }
+    .testimonials h2 { text-align: center; margin-bottom: 40px; }
+    .testimonial-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .testimonial-card {
+      background: #f9f9fb;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    }
+    .testimonial-card p { margin-bottom: 15px; font-style: italic; }
+    .testimonial-card h4 { color: #7b2fff; }
+.social-links {
+  text-align: center;
+  margin: 40px 0 20px 0;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.social-links img {
+  width: 35px;     /* 🔹 Ukuran ikon */
+  height: 35px;
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);  /* 🔹 Efek zoom pas dihover */
+}
+
+    /* Footer */
+    footer {
+      background: #2c2c54;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+ <!-- Navbar -->
+<header>
+  <div class="navbar">
+    <div class="logo">Iin<span style="color:#7b2fff;">.</span></div>
+    <nav>
+  <a href="#home">Home</a>
+  <a href="#swot">SWOT</a>
+  <a href="#materi">Materi</a>
+  <a href="#contact">Contact</a> <!-- 🔹 tambahkan id targetnya -->
+</nav>
+
+  </div>
+</header>
+
+ <!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <h1>Hai, Saya Iin Sumarni</h1>
+    <p class="lead mb-1">
+      Saya tertarik pada bidang desain UI/UX dan analisis sistem,
+      berfokus pada pengembangan antarmuka yang mudah digunakan dan solusi sistem yang efektif.
+    </p>
+     <a href="https://bit.ly/Portofolio-Iin" target="_blank" class="btn">Lihat Portofolio</a>
+   
+  </div>
+  <div class="hero-img">
+    <img src="iinprofile.jpg" alt="foto" class="profile-img">
+
+  </div>
+</section>
+
+
+
+  <!-- SWOT -->
+  <section class="swot" id="swot">
+    <h2>Analisis SWOT Diri</h2>
+    <p>Berikut analisis diri saya dalam menghadapi tantangan di bidang teknologi dan desain.</p>
+
+    <div class="swot-diagram">
+      <div class="swot-circle">
+        <div class="quad s">S</div>
+        <div class="quad w">W</div>
+        <div class="quad o">O</div>
+        <div class="quad t">T</div>
+      </div>
+    </div>
+
+    <div class="swot-content">
+      <div class="swot-card">
+        <h3>Strength (Kekuatan)</h3>
+        <ul>
+          <li>Kreatif dalam membuat desain antarmuka.</li>
+          <li>Terampil menggunakan Figma dan HTML/CSS.</li>
+          <li>Mampu bekerja tim dan beradaptasi cepat.</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <h3>Weakness (Kelemahan)</h3>
+        <ul>
+          <li>Masih perlu latihan dalam JavaScript lanjutan.</li>
+          <li>Waktu pengerjaan kadang belum efisien.</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <h3>Opportunities (Peluang)</h3>
+        <ul>
+          <li>Bidang UI/UX terus berkembang pesat.</li>
+          <li>Banyak peluang kerja sebagai system analyst.</li>
+        </ul>
+      </div>
+      <div class="swot-card">
+        <h3>Threats (Ancaman)</h3>
+        <ul>
+          <li>Persaingan dengan desainer profesional lainnya.</li>
+          <li>Perkembangan teknologi yang cepat menuntut adaptasi.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PDF Section -->
+  <section class="pdf-section" id="pdf">
+    <h2>Materi</h2>
+    <div class="pdf-grid">
+      <div class="pdf-card">
+       <img src="ti1.jpg" alt="foto" class="Design">
+        <h4>Kekuatan Pendatar Dunia 6 Dari Teknologi Informasi</h4>
+       <a href="https://pujo.staff.ut.ac.id/dunia-datar/" target="_blank" class="btn btn-outline-primary btn-sm">Visit Project</a>
+      </div>
+      <div class="pdf-card">
+        <img src="ti2.png" alt="foto" class="Design">
+        <h4>10 Kekuatan Yang Mendatarkan Dunia</h4>
+       <a href="https://romisatriawahono.net/2007/02/12/the-world-is-flat-10-kekuatan-yang-mendatarkan-dunia/" target="_blank" class="btn btn-outline-primary btn-sm">Visit Project</a>
+      </div>
+      <div class="pdf-card">
+        <img src="porter.jpg" alt="foto" class="Design">
+        <h4>Porter’s Five Forces</h4>
+        <a href="https://binus.ac.id/malang/2020/08/porters-five-forces-lima-hal-sebelum-bersaing/" target="_blank" class="btn btn-outline-primary btn-sm">Visit Project</a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+
+ <!-- Social Media -->
+<div class="social-links" id="contact">
+  <a href="https://www.instagram.com/iinns.i?igsh=a3RlZzY4c3luZGJi" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+  </a>
+  <a href="https://www.linkedin.com/in/iinsumarni?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+  </a>
+</div>
+
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Iin • All Rights Reserved
+</footer>
+
+
